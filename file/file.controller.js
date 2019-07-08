@@ -1,4 +1,4 @@
-const File = require('./File.model.js');
+const File = require('./file.model.js');
 
 //Create new File
 exports.create = (req, res) => {
