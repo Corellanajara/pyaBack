@@ -1,8 +1,11 @@
 const express = require('express');
 const bodyParser = require('body-parser');
-
 const app = express();
+const fileUpload = require('express-fileupload');
 
+
+// default options
+app.use(fileUpload());
 app.use(bodyParser.urlencoded({ extended: true }));
 app.use(bodyParser.json());
 
@@ -16,7 +19,17 @@ app.use(function(req, res, next) {
 
 const config = require('./config.js');
 const mongoose = require('mongoose');
-require('./product.routes.js')(app);
+
+require('./juridisccion/juridisccion.routes.js')(app);
+require('./materia/materia.routes.js')(app);
+require('./causa/causa.routes.js')(app);
+require('./file/file.routes.js')(app);
+require('./parte/parte.routes.js')(app);
+require('./usuario/usuario.routes.js')(app);
+require('./estudio/estudio.routes.js')(app);
+require('./sucursal/sucursal.routes.js')(app);
+require('./materia-sucursal/materia-sucursal.routes.js')(app);
+require('./materia-causa/materia-causa.routes.js')(app);
 
 mongoose.Promise = global.Promise;
 
@@ -31,7 +44,7 @@ mongoose.connect(config.url, {
 
 
 app.get('/', (req, res) => {
-    res.json({"message": "APi para ropa y estilo"});
+    res.json({"message": "APi Protección y Amparo"});
 });
 
 app.listen(config.serverport, () => {
