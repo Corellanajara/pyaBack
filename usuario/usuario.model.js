@@ -4,6 +4,7 @@ const sucursalSchema = mongoose.Schema({
   Nombres : String,
   ApellidoMaterno : String,
   ApellidoPaterno : String,
+  FechaNacimiento : String,
   Correo : String,
   CorreoPersonal : String,
   Rut : String,
