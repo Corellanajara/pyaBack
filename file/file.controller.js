@@ -1,16 +1,30 @@
 const File = require('./file.model.js');
-
+const fs   = require('fs');
 //Create new File
 exports.create = (req, res) => {
 
-    console.log("files",req.files);
-
     if(!req.body) {
-
         return res.status(400).send({
             message: "No puede estar vacio"
         });
     }
+    let archivo = req.files.file;
+    //console.log("archivo",archivo);
+    console.log("req body",req.body);
+    // Use the mv() method to place the file somewhere on your server
+    let causa = req.body.index+"."+req.body.sede+"-"+req.body.area;
+    let path = process.cwd()+'/archivos/'+req.body.sede+'/'+req.body.area+"/"+causa;
+    fs.mkdir(path, { recursive: true }, (err,success) => {
+      if (err) throw err;
+      console.log(success);
+      archivo.mv(path+"/"+archivo.name, function(err) {
+        if (err)
+          return res.status(500).send(err);
+        console.log(path+"/"+archivo.name);
+        res.send({message: "Archivo Subido Correctamente!"});
+      });
+    });
+
 
 /*
     const file = new File({
