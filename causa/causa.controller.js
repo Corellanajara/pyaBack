@@ -11,6 +11,7 @@ exports.create = (req, res) => {
     }
 
     const causa = new Causa({
+        index : req.body.index,
         nombres: req.body.nombres || "Sin titulo",
         apellido_p: req.body.apellido_p,
         apellido_m: req.body.apellido_m,
@@ -107,6 +108,7 @@ exports.update = (req, res) => {
     }
     // Find and update causa with the request body
     Causa.findByIdAndUpdate(req.params.causaId, {
+      index : req.body.index,
       nombres: req.body.nombres || "Sin titulo",
       apellido_p: req.body.apellido_p,
       apellido_m: req.body.apellido_m,

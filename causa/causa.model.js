@@ -2,11 +2,13 @@ const mongoose = require('mongoose');
 
 const causaSchema = mongoose.Schema({
 
+    index : Number ,
     nombres: String,
     apellido_p : String,
     apellido_m : String,
     materia : String,
     parte : String,
+
     // Desde aqui info de seguimiento
     datos : Array,
     cliente : Array,
