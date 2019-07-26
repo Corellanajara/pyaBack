@@ -12,6 +12,7 @@ exports.create = (req, res) => {
 
     const estudio = new Estudio({
       title: req.body.title,
+      url: req.body.url,
       users : req.body.users
     });
 
@@ -94,6 +95,7 @@ exports.update = (req, res) => {
     // Find and update estudio with the request body
     Estudio.findByIdAndUpdate(req.params.estudioId, {
         title: req.body.title,
+        url: req.body.url,
         users : req.body.users
     }, {new: true})
     .then(estudio => {
