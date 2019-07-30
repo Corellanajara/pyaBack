@@ -47,7 +47,16 @@ exports.create = (req, res) => {
         });
     });
 };
-
+exports.findAll = (req,res) => {
+  Formato.find()
+  .then(formatos => {
+      res.send(formatos);
+  }).catch(err => {
+      res.status(500).send({
+          message: err.message || "Error en traer los formatos."
+      });
+  });
+}
 
 // Find a single causa with a causaId
 exports.findTramitacion = (req, res) => {

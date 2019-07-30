@@ -5,6 +5,8 @@ module.exports = (app) => {
 
     app.post('/formatos', formatos.create);
 
+    app.get("/formatos",formatos.findAll);
+
     app.get('/formatos/internos', formatos.findInternos);
     app.get('/formatos/tramitacion', formatos.findTramitacion);
 
