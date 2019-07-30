@@ -2,6 +2,7 @@ const mongoose = require('mongoose');
 
 const sucursalSchema = mongoose.Schema({
   nombre : String,
+  nombreArchivo : String,
   tipo : String
 
   // pendiente hashear clave

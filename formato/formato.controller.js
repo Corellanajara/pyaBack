@@ -33,6 +33,7 @@ exports.create = (req, res) => {
 
     const formato = new Formato({
         nombre : req.body.nombre,
+        nombreArchivo : req.body.nombreArchivo,
         tipo : req.body.tipo
 
     });
@@ -106,6 +107,7 @@ exports.update = (req, res) => {
     }
     Formato.findByIdAndUpdate(req.params.formatoId, {
       nombre : req.body.nombre,
+      nombreArchivo : req.body.nombreArchivo,
       tipo : req.body.tipo
     }, {new: true})
     .then(causa => {
