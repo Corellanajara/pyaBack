@@ -4,7 +4,7 @@ const app = express();
 const fileUpload = require('express-fileupload');
 
 
-// default options
+// necesarios
 app.use(fileUpload());
 app.use(bodyParser.urlencoded({ extended: true }));
 app.use(bodyParser.json());
@@ -24,6 +24,7 @@ require('./juridisccion/juridisccion.routes.js')(app);
 require('./materia/materia.routes.js')(app);
 require('./causa/causa.routes.js')(app);
 require('./file/file.routes.js')(app);
+require('./formato/formato.routes.js')(app);
 require('./parte/parte.routes.js')(app);
 require('./usuario/usuario.routes.js')(app);
 require('./estudio/estudio.routes.js')(app);
@@ -41,7 +42,6 @@ mongoose.connect(config.url, {
     console.log('No se pudo conectar... Saliendo de la base de datos', err);
     process.exit();
 });
-
 
 app.get('/', (req, res) => {
     res.json({"message": "APi Protección y Amparo"});
