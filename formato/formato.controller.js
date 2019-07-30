@@ -8,7 +8,7 @@ exports.createFormato = (req, res) => {
             message: "No puede estar vacio"
         });
     }
-    let archivo = req.Formatos.Formato;
+    let archivo = req.files.file;
 
     let path = process.cwd()+'/archivos/formatos/'+req.body.tipo;
     fs.mkdir(path, { recursive: true }, (err,success) => {
