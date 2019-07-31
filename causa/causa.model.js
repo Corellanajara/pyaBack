@@ -8,6 +8,7 @@ const causaSchema = mongoose.Schema({
     apellido_m : String,
     materia : String,
     parte : String,
+    hojaRuta : Array,
 
     // Desde aqui info de seguimiento
     datos : Array,
