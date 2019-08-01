@@ -52,7 +52,26 @@ exports.findAll = (req, res) => {
         });
     });
 };
-
+exports.findByCondicion = (req,res) => {
+  Causa.find( req.body.condicion )
+  .then(causa => {
+      if(!causa) {
+          return res.status(404).send({
+              message: "No se encontro info con la id " + req.params.sucursalId
+          });
+      }
+      res.send(causa);
+  }).catch(err => {
+      if(err.kind === 'ObjectId') {
+          return res.status(404).send({
+              message: "No encontrado causao  " + req.params.sucursalId
+          });
+      }
+      return res.status(500).send({
+          message: "No se puedo encontrar " + req.params.sucursalId
+      });
+  });
+};
 // Find a single causa with a causaId
 exports.findByMateria = (req, res) => {
 

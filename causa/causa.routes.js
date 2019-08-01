@@ -3,11 +3,13 @@ module.exports = (app) => {
 
     app.post('/causas', causas.create);
 
+    app.post('/causas/condicion/',causas.findByCondicion);
+
     app.get('/causas', causas.findAll);
 
     app.get('/causas/:causaId', causas.findOne);
 
-    app.post('/causas/materia/:sucursalId', causas.findByMateria);    
+    app.post('/causas/materia/:sucursalId', causas.findByMateria);
 
     app.put('/causas/:causaId', causas.update);
 
