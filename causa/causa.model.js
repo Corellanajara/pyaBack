@@ -14,6 +14,7 @@ const causaSchema = mongoose.Schema({
     datos : Array,
     cliente : Array,
     clienteParte : Array,
+    contraParte : Array,
     sucursal : String,
     juridisccion : String,
     userId : String,
