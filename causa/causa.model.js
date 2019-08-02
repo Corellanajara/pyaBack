@@ -13,6 +13,7 @@ const causaSchema = mongoose.Schema({
     // Desde aqui info de seguimiento
     datos : Array,
     cliente : Array,
+    clienteParte : Array,
     sucursal : String,
     juridisccion : String,
     userId : String,
