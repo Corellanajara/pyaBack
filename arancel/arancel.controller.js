@@ -56,53 +56,6 @@ exports.findAll = (req,res) => {
   });
 }
 
-// Find a single causa with a causaId
-exports.findTramitacion = (req, res) => {
-
-
-    Arancel.find({ tipo : "tramitacion" })
-    .then(Arancel => {
-        if(!causa) {
-            return res.status(404).send({
-                message: "No se encontro info con la id " + req.params.sucursalId
-            });
-        }
-        res.send(causa);
-    }).catch(err => {
-        if(err.kind === 'ObjectId') {
-            return res.status(404).send({
-                message: "No encontrado arancel  " + req.params.sucursalId
-            });
-        }
-        return res.status(500).send({
-            message: "No se puedo encontrar " + req.params.sucursalId
-        });
-    });
-};
-
-exports.findInternos = (req, res) => {
-
-
-    Arancel.find({ tipo : "internos" })
-    .then(Arancel => {
-        if(!causa) {
-            return res.status(404).send({
-                message: "No se encontro info con la id " + req.params.sucursalId
-            });
-        }
-        res.send(causa);
-    }).catch(err => {
-        if(err.kind === 'ObjectId') {
-            return res.status(404).send({
-                message: "No encontrado arancel  " + req.params.sucursalId
-            });
-        }
-        return res.status(500).send({
-            message: "No se puedo encontrar " + req.params.sucursalId
-        });
-    });
-};
-
 
 // Update a causa
 exports.update = (req, res) => {
