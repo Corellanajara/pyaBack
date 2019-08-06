@@ -90,7 +90,7 @@ exports.update = (req, res) => {
 
 // Delete a note with the specified noteId in the request
 exports.delete = (req, res) => {
-    Arancel.findByIdAndRemove(req.params.ArancelId)
+    Arancel.findByIdAndRemove(req.params.arancelId)
     .then(causa => {
         if(!causa) {
             return res.status(404).send({
