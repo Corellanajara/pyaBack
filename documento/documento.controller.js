@@ -35,6 +35,7 @@ exports.create = (req, res) => {
         nombre : req.body.nombre,
         nombreArchivo : req.body.nombreArchivo,
         tipo : req.body.tipo,
+        estado : req.body.estado || 1,
     });
 
     documento.save()
@@ -70,6 +71,7 @@ exports.update = (req, res) => {
       nombre : req.body.nombre,
       nombreArchivo : req.body.nombreArchivo,
       tipo : req.body.tipo,
+      estado : req.body.estado || 1,
     }, {new: true})
     .then(causa => {
         if(!causa) {
