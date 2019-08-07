@@ -26,6 +26,7 @@ require('./causa/causa.routes.js')(app);
 require('./file/file.routes.js')(app);
 require('./formato/formato.routes.js')(app);
 require('./documento/documento.routes.js')(app);
+require('./consulta/consulta.routes.js')(app);
 require('./arancel/arancel.routes.js')(app);
 require('./parte/parte.routes.js')(app);
 require('./usuario/usuario.routes.js')(app);
