@@ -96,18 +96,18 @@ exports.delete = (req, res) => {
     .then(causa => {
         if(!causa) {
             return res.status(404).send({
-                message: "arancel no encontrado id " + req.params.documentoId
+                message: "documento no encontrado id " + req.params.documentoId
             });
         }
-        res.send({message: "arancel borrado correctamente!"});
+        res.send({message: "documento borrado correctamente!"});
     }).catch(err => {
         if(err.kind === 'ObjectId' || err.name === 'NotFound') {
             return res.status(404).send({
-                message: "arancel no encontrado id " + req.params.documentoId
+                message: "documento no encontrado id " + req.params.documentoId
             });
         }
         return res.status(500).send({
-            message: "No se pudo borrar el arancel id " + req.params.documentoId
+            message: "No se pudo borrar el documento id " + req.params.documentoId
         });
     });
 };
