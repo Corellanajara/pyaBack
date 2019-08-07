@@ -1,13 +1,13 @@
 module.exports = (app) => {
     const documentos = require('./documento.controller.js');
 
-    app.post('/documentosFile', documentos.createdocmento);
+    app.post('/documentosFile', documentos.createdocumento);
 
     app.post('/documentos', documentos.create);
 
     app.get("/documentos",documentos.findAll);
 
-    app.put('/documentos/:docmentoId', documentos.update);
+    app.put('/documentos/:documentoId', documentos.update);
 
-    app.delete('/documentos/:docmentoId', documentos.delete);
+    app.delete('/documentos/:documentoId', documentos.delete);
 }

@@ -1,7 +1,7 @@
 const Documento = require('./documento.model.js');
 const fs   = require('fs');
 
-exports.createdocmento = (req, res) => {
+exports.createdocumento = (req, res) => {
 
     if(!req.body) {
         return res.status(400).send({
