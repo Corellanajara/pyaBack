@@ -67,7 +67,7 @@ exports.update = (req, res) => {
             message: "Arancel content can not be empty"
         });
     }
-    Documento.findByIdAndUpdate(req.params.ArancelId, {
+    Documento.findByIdAndUpdate(req.params.documentoId, {
       nombre : req.body.nombre,
       nombreArchivo : req.body.nombreArchivo,
       tipo : req.body.tipo,
