@@ -33,6 +33,7 @@ exports.create = (req, res) => {
     }
 
     const consulta = new Consulta({
+        nombreArchivo : req.body.nombreArchivo,
         nombreReferido : req.body.nombreReferido,
         nombreCaptador : req.body.nombreCaptador,
         fecha : req.body.fecha,
@@ -67,7 +68,8 @@ exports.update = (req, res) => {
             message: "Arancel content can not be empty"
         });
     }
-    Consulta.findByIdAndUpdate(req.params.ArancelId, {
+    Consulta.findByIdAndUpdate(req.params.consultaId, {
+      nombreArchivo : req.body.nombreArchivo,
       nombreReferido : req.body.nombreReferido,
       nombreCaptador : req.body.nombreCaptador,
       fecha : req.body.fecha,
