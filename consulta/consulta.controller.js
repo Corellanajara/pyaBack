@@ -10,7 +10,7 @@ exports.createConsulta = (req, res) => {
     }
     let archivo = req.files.file;
 
-    let path = process.cwd()+'/archivos/consultas/ficha'+req.body.fecha+'/'+req.body.area;;
+    let path = process.cwd()+'/archivos/consultas/ficha/'+req.body.fecha+'/'+req.body.area;
 
     fs.mkdir(path, { recursive: true }, (err,success) => {
       if (err) throw err;
@@ -36,6 +36,7 @@ exports.create = (req, res) => {
         nombreArchivo : req.body.nombreArchivo,
         nombreReferido : req.body.nombreReferido,
         nombreCaptador : req.body.nombreCaptador,
+        area : req.body.area,
         fecha : req.body.fecha,
     });
 
@@ -72,6 +73,7 @@ exports.update = (req, res) => {
       nombreArchivo : req.body.nombreArchivo,
       nombreReferido : req.body.nombreReferido,
       nombreCaptador : req.body.nombreCaptador,
+      area : req.body.area,
       fecha : req.body.fecha,
     }, {new: true})
     .then(causa => {

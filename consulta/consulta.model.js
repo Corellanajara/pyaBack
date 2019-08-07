@@ -4,6 +4,7 @@ const sucursalSchema = mongoose.Schema({
   nombreArchivo : String,
   nombreReferido : String,
   nombreCaptador : String,
+  area : String,
   fecha : String,
   // pendiente hashear clave
 }, {
