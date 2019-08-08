@@ -37,6 +37,7 @@ exports.create = (req, res) => {
         nombreReferido : req.body.nombreReferido,
         nombreCaptador : req.body.nombreCaptador,
         area : req.body.area,
+        sede : req.body.sede,
         fecha : req.body.fecha,
     });
 
@@ -74,6 +75,7 @@ exports.update = (req, res) => {
       nombreReferido : req.body.nombreReferido,
       nombreCaptador : req.body.nombreCaptador,
       area : req.body.area,
+      sede : req.body.sede,
       fecha : req.body.fecha,
     }, {new: true})
     .then(causa => {
