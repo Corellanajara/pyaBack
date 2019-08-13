@@ -39,6 +39,8 @@ exports.create = (req, res) => {
         area : req.body.area,
         sede : req.body.sede,
         fecha : req.body.fecha,
+        estado : req.body.estado || 0,
+        usuario : req.body.usuario,
     });
 
     consulta.save()
@@ -77,6 +79,8 @@ exports.update = (req, res) => {
       area : req.body.area,
       sede : req.body.sede,
       fecha : req.body.fecha,
+      estado : req.body.estado || 0,
+      usuario : req.body.usuario,
     }, {new: true})
     .then(causa => {
         if(!causa) {
