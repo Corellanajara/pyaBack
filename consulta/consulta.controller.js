@@ -41,6 +41,7 @@ exports.create = (req, res) => {
         fecha : req.body.fecha,
         estado : req.body.estado || 0,
         modificado : req.body.modificado,
+        causa : req.body.causa,
         usuario : req.body.usuario,
     });
 
@@ -82,6 +83,7 @@ exports.update = (req, res) => {
       fecha : req.body.fecha,
       estado : req.body.estado || 0,
       modificado : req.body.modificado,
+      causa : req.body.causa,
       usuario : req.body.usuario,
     }, {new: true})
     .then(causa => {
