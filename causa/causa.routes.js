@@ -7,6 +7,8 @@ module.exports = (app) => {
 
     app.get('/causas', causas.findAll);
 
+    app.get('/causas/nuevas' , causas.getLast15 )
+
     app.get('/causas/:causaId', causas.findOne);
 
     app.post('/causas/materia/:sucursalId', causas.findByMateria);

@@ -22,6 +22,7 @@ const causaSchema = mongoose.Schema({
     users : Array,
     estado : Number,
     estadoPago : Number,
+    fechaTermino : String,
 
 
 }, {

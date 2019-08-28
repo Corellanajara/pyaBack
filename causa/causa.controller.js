@@ -28,7 +28,8 @@ exports.create = (req, res) => {
         menu : req.body.menu,
         users : req.body.users,
         estado : req.body.estado,
-        estadoPago : req.body.estadoPago
+        estadoPago : req.body.estadoPago,
+        fechaTermino : req.body.fechaTermino,
 
     });
 
@@ -98,6 +99,28 @@ exports.findByMateria = (req, res) => {
     });
 };
 
+
+exports.getLast15 = (req,res) => {
+  Causa.find({"createdAt":{ $gte:ISODate("2019-08-14"), $lt:ISODate("2019-08-31") }})
+  .then(causa => {
+      if(!causa) {
+          return res.status(404).send({
+              message: "No se encontro info con la id " + req.params.sucursalId
+          });
+      }
+      res.send(causa);
+  }).catch(err => {
+      if(err.kind === 'ObjectId') {
+          return res.status(404).send({
+              message: "No encontrado causao  " + req.params.sucursalId
+          });
+      }
+      return res.status(500).send({
+          message: "No se puedo encontrar " + req.params.sucursalId
+      });
+  });
+
+}
 // Find a single causa with a causaId
 exports.findOne = (req, res) => {
     Causa.find({ materia : req.params.causaId })
@@ -147,7 +170,8 @@ exports.update = (req, res) => {
       menu : req.body.menu,
       users : req.body.users,
       estado : req.body.estado,
-      estadoPago : req.body.estadoPago
+      estadoPago : req.body.estadoPago,
+      fechaTermino : req.body.fechaTermino,
     }, {new: true})
     .then(causa => {
         if(!causa) {
