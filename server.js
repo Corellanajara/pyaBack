@@ -61,7 +61,7 @@ mongoose.connect(config.url, {
 app.get('/', (req, res) => {
     res.json({"message": "APi Protección y Amparo"});
 });
-app.get('/email', (req,res)=>{
+app.post('/email', (req,res)=>{
   let to = req.body.email;
   let subject = req.body.subject;
   let message = req.body.message;
