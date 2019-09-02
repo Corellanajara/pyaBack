@@ -2,7 +2,19 @@ const express = require('express');
 const bodyParser = require('body-parser');
 const app = express();
 const fileUpload = require('express-fileupload');
+var nodemailer = require('nodemailer');
 
+
+var transporter = nodemailer.createTransport({
+  pool: true,
+  host: "mail.proteccionyamparo.cl",
+  port: 465,
+  secure: true, // use TLS
+  auth: {
+    user: "pya@proteccionyamparo.cl",
+    pass: "pyalindayfuerte"
+  }
+});
 
 // necesarios
 app.use(fileUpload());
@@ -49,6 +61,26 @@ mongoose.connect(config.url, {
 app.get('/', (req, res) => {
     res.json({"message": "APi Protección y Amparo"});
 });
+app.get('/email', (req,res)=>{
+  let to = req.body.email;
+  let subject = req.body.subject;
+  let message = req.body.message;
+  var mailOptions = {
+    from: 'pya@proteccionyamparo.cl',
+    to: to,
+    subject: subject,
+    text: message
+  };
+
+  transporter.sendMail(mailOptions, function(error, info){
+    if (error) {
+      console.log(error);
+    } else {
+      console.log('Email sent: ' + info.response);
+      res.json({"message": "Enviado correctamente"});
+    }
+  });
+})
 
 app.listen(config.serverport, () => {
     console.log("Escuchando al puerto "+config.serverport);
