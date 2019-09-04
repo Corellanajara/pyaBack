@@ -66,7 +66,7 @@ exports.findAll = (req,res) => {
 }
 
 exports.findByCausa = (req,res) => {
-  Escrito.find({ index : req.params.escritoId })
+  Escrito.find({ index : req.params.causaId })
   .then(Escritos => {
       res.send(Escritos);
   }).catch(err => {

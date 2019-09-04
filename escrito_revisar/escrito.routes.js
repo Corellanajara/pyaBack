@@ -7,7 +7,7 @@ module.exports = (app) => {
 
     app.get("/escritos",escritos.findAll);
 
-    app.get("/escritos/causa",escritos.findByCausa);
+    app.get("/escritos/causa/:causaId",escritos.findByCausa);
 
     app.put('/escritos/:escritoId', escritos.update);
 
