@@ -5,7 +5,7 @@ const sucursalSchema = mongoose.Schema({
   nombreArchivo : String,
   nombre : String,
   fecha : String,
-  index : Number,
+  index : String,
   sucursal : String,
   area : String,
   revisor : Number,
