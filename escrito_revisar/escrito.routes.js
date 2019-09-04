@@ -1,7 +1,7 @@
 module.exports = (app) => {
     const escritos = require('./escrito.controller.js');
 
-    app.post('/escritosFile', escritos.createescrito);
+    app.post('/escritosFile', escritos.createEscrito);
 
     app.post('/escritos', escritos.create);
 

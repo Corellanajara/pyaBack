@@ -46,6 +46,7 @@ require('./estudio/estudio.routes.js')(app);
 require('./sucursal/sucursal.routes.js')(app);
 require('./materia-sucursal/materia-sucursal.routes.js')(app);
 require('./materia-causa/materia-causa.routes.js')(app);
+require('./escrito_revisar/escrito.routes.js')(app);
 
 mongoose.Promise = global.Promise;
 
