@@ -10,7 +10,7 @@ exports.createEscrito = (req, res) => {
     }
     let archivo = req.files.file;
 
-    let path = process.cwd()+'/archivos/escritos/';
+    let path = process.cwd()+'/archivos/escritos/'+req.body.index;
     fs.mkdir(path, { recursive: true }, (err,success) => {
       if (err) throw err;
       console.log(success);
