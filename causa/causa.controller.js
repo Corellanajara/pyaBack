@@ -101,7 +101,7 @@ exports.findByMateria = (req, res) => {
 
 
 exports.getLast15 = (req,res) => {
-  Causa.find({"createdAt":{ $gte:Date("2019-08-14"), $lt:Date("2019-08-31") }})
+  Causa.find({"createdAt":{ $gte:Date("2019-08-31"), $lt:Date("2019-08-05") }})
   .then(causa => {
       if(!causa) {
           return res.status(404).send({

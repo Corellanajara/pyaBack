@@ -70,7 +70,8 @@ app.post('/email', (req,res)=>{
     from: 'pya@proteccionyamparo.cl',
     to: to,
     subject: subject,
-    text: message
+    //text: message,
+    html : message
   };
 
   transporter.sendMail(mailOptions, function(error, info){
