@@ -121,6 +121,27 @@ exports.getLast15 = (req,res) => {
   });
 
 }
+exports.getReporte = (req,res) => {
+  Causa.find({"createdAt":{ $gte:Date(req.params.fechaI), $lt:Date(req.params.fechaF) }})
+  .then(causa => {
+      if(!causa) {
+          return res.status(404).send({
+              message: "No se encontro info con la id " + req.params.sucursalId
+          });
+      }
+      res.send(causa);
+  }).catch(err => {
+      if(err.kind === 'ObjectId') {
+          return res.status(404).send({
+              message: "No encontrado causao  " + req.params.sucursalId
+          });
+      }
+      return res.status(500).send({
+          message: "No se puedo encontrar " + req.params.sucursalId
+      });
+  });
+
+}
 // Find a single causa with a causaId
 exports.findOne = (req, res) => {
     Causa.find({ materia : req.params.causaId })
