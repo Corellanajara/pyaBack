@@ -9,7 +9,7 @@ module.exports = (app) => {
 
     app.get("/escritos/causa/:causaId",escritos.findByCausa);
 
-    app.post("/escritos/estado/:estadoId",escritos.findByEstado);
+    app.get("/escritos/estado/:estadoId",escritos.findByEstado);
 
     app.put('/escritos/:escritoId', escritos.update);
 

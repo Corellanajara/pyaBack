@@ -78,7 +78,7 @@ exports.findByCausa = (req,res) => {
 }
 
 exports.findByEstado = (req,res) => {
-  Escrito.find({ estado : req.body.estadoId })
+  Escrito.find({ estado : req.params.estadoId })
   .then(Escritos => {
       res.send(Escritos);
   }).catch(err => {
