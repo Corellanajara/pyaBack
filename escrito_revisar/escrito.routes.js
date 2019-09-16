@@ -9,6 +9,8 @@ module.exports = (app) => {
 
     app.get("/escritos/causa/:causaId",escritos.findByCausa);
 
+    app.post("/escritos/estado/:estadoId",escritos.findByEstado);
+
     app.put('/escritos/:escritoId', escritos.update);
 
     app.delete('/escritos/:escritoId', escritos.delete);

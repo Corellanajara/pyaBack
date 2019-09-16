@@ -9,7 +9,7 @@ module.exports = (app) => {
 
     app.get('/causas/nuevas' , causas.getLast15 );
 
-    app.get('/causas/reporte' , causas.getReporte );
+    app.post('/causas/reporte' , causas.getReporte );
 
     app.get('/causas/:causaId', causas.findOne);
 

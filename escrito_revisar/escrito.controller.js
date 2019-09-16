@@ -77,6 +77,17 @@ exports.findByCausa = (req,res) => {
   });
 }
 
+exports.findByEstado = (req,res) => {
+  Escrito.find({ estado : req.body.estadoId })
+  .then(Escritos => {
+      res.send(Escritos);
+  }).catch(err => {
+      res.status(500).send({
+          message: err.message || "Error en traer los Escritos."
+      });
+  });
+}
+
 
 // Update a causa
 exports.update = (req, res) => {

@@ -101,7 +101,10 @@ exports.findByMateria = (req, res) => {
 
 
 exports.getLast15 = (req,res) => {
-  Causa.find({"createdAt":{ $gte:Date("2019-08-31"), $lt:Date("2019-08-05") }})
+  let inicio = "2019-08-01";
+  let fin = "2019-08-15";
+  let toFind = {"createdAt":{ $gte:new Date(inicio), $lt:new Date(fin) }};  
+  Causa.find(toFind)
   .then(causa => {
       if(!causa) {
           return res.status(404).send({
@@ -120,9 +123,9 @@ exports.getLast15 = (req,res) => {
       });
   });
 
-}
+};
 exports.getReporte = (req,res) => {
-  Causa.find({"createdAt":{ $gte:Date(req.params.fechaI), $lt:Date(req.params.fechaF) }})
+  Causa.find({"createdAt":{ $gte:new Date(req.body.fechaI), $lt:new Date(req.body.fechaF) }})
   .then(causa => {
       if(!causa) {
           return res.status(404).send({
@@ -141,7 +144,7 @@ exports.getReporte = (req,res) => {
       });
   });
 
-}
+};
 // Find a single causa with a causaId
 exports.findOne = (req, res) => {
     Causa.find({ materia : req.params.causaId })
